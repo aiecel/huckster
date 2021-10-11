@@ -1,10 +1,10 @@
 package org.aiecel.huckster.core.value.series;
 
-import org.aiecel.huckster.core.value.TimedValue;
+import org.aiecel.huckster.trading.ta.indicator.Indicator;
 
 import java.util.List;
 
-public interface Series<V extends TimedValue> extends Iterable<V> {
+public interface Series<V> extends Indicator<V> {
     /**
      * Returns the max size of a series.
      *
@@ -50,7 +50,9 @@ public interface Series<V extends TimedValue> extends Iterable<V> {
      *
      * @return last value.
      */
-    V getLast();
+    default V getLast() {
+        return getByOffset(0);
+    }
 
     /**
      * Returns list of all values

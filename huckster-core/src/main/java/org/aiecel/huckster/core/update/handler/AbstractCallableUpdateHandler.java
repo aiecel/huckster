@@ -12,7 +12,7 @@ public abstract class AbstractCallableUpdateHandler<T> extends AbstractUpdateHan
      * Triggers an update.
      */
     @Override
-    public void call() {
+    public void update() {
         log.debug("Updating object: {}", updatingObject);
         updateObject();
         log.debug("Object {} has been updated", updatingObject);

@@ -1,8 +1,11 @@
 package org.aiecel.huckster.core.update.handler;
 
-public interface CallableUpdateHandler<T> extends UpdateHandler<T> {
+import org.aiecel.huckster.core.update.Updatable;
+
+public interface CallableUpdateHandler<T> extends UpdateHandler<T>, Updatable {
     /**
      * Triggers an update.
      */
-    void call();
+    @Override
+    void update();
 }

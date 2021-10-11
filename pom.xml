@@ -20,8 +20,10 @@
             </plugin>
         </plugins>
     </build>
+
     <modules>
         <module>huckster-core</module>
+        <module>playground</module>
     </modules>
 
     <properties>
