@@ -5,6 +5,9 @@ import lombok.RequiredArgsConstructor;
 
 import java.time.Duration;
 
+/**
+ * Timeframe.
+ */
 @RequiredArgsConstructor
 @Getter
 public enum Timeframe {

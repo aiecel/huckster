@@ -1,12 +1,12 @@
 package org.aiecel.huckster.core.price.series;
 
-import org.aiecel.huckster.core.price.PriceTick;
+import org.aiecel.huckster.core.price.Tick;
 import org.aiecel.huckster.core.value.series.BaseTimedValueSeries;
 
 import java.math.BigDecimal;
 import java.util.Collection;
 
-public class TickSeries extends BaseTimedValueSeries<PriceTick> implements PriceSeries {
+public class TickSeries extends BaseTimedValueSeries<Tick> implements PriceSeries {
     public TickSeries() {
         super();
     }
@@ -15,7 +15,7 @@ public class TickSeries extends BaseTimedValueSeries<PriceTick> implements Price
         super(capacity);
     }
 
-    public TickSeries(int capacity, Collection<PriceTick> values) {
+    public TickSeries(int capacity, Collection<Tick> values) {
         super(capacity, values);
     }
 

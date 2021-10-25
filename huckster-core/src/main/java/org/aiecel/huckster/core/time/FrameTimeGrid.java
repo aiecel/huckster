@@ -3,6 +3,9 @@ package org.aiecel.huckster.core.time;
 import java.time.Duration;
 import java.time.Instant;
 
+/**
+ * Time grid with equally distributed time frames.
+ */
 public class FrameTimeGrid implements TimeGrid {
     private final long alignmentEpochMilli;
     private final long timeframeMillis;
@@ -11,7 +14,7 @@ public class FrameTimeGrid implements TimeGrid {
         this.alignmentEpochMilli = alignmentTimestamp.toEpochMilli();
         this.timeframeMillis = frameDuration.toMillis();
     }
-    
+
     /**
      * Returns true if the provided timestamp is aligned with the grid.
      *

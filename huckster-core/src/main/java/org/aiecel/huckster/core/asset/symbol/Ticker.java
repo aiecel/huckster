@@ -4,11 +4,19 @@ import lombok.Getter;
 
 import java.util.Objects;
 
+/**
+ * Ticker of an asset.
+ */
 @Getter
 public final class Ticker implements Symbol {
     private final String ticker;
     private final String description;
 
+    /**
+     * Constructs a ticker with an empty description.
+     *
+     * @param ticker ticker
+     */
     public Ticker(String ticker) {
         this(ticker, "");
     }
@@ -21,7 +29,7 @@ public final class Ticker implements Symbol {
     /**
      * Returns the symbol of the asset.
      *
-     * @return the symbol of the asset.
+     * @return a {@link String}.
      */
     @Override
     public String getString() {

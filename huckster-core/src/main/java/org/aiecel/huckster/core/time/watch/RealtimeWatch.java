@@ -2,6 +2,9 @@ package org.aiecel.huckster.core.time.watch;
 
 import java.time.Instant;
 
+/**
+ * Watch that returns current time.
+ */
 public final class RealtimeWatch implements Watch {
     private static RealtimeWatch instance;
 
@@ -13,6 +16,11 @@ public final class RealtimeWatch implements Watch {
         return instance;
     }
 
+    /**
+     * Returns {@link Instant} of current time.
+     *
+     * @return {@link Instant}.
+     */
     @Override
     public Instant getCurrentTimestamp() {
         return Instant.now();

@@ -2,6 +2,11 @@ package org.aiecel.huckster.core.update.handler;
 
 import org.aiecel.huckster.core.update.UpdateListener;
 
+/**
+ * Interface for classes used for handling update process of an object.
+ *
+ * @param <T> type of updating object.
+ */
 public interface UpdateHandler<T> {
     /**
      * Initializes an update handler.
@@ -11,7 +16,7 @@ public interface UpdateHandler<T> {
     /**
      * Adds an update listener to the update handler.
      *
-     * @param updateListener an update listener.
+     * @param updateListener an {@link UpdateListener}.
      */
     void addUpdateListener(UpdateListener<T> updateListener);
 }

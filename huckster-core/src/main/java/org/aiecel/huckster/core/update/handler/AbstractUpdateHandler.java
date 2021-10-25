@@ -6,6 +6,11 @@ import org.aiecel.huckster.core.update.UpdateListener;
 import java.util.ArrayList;
 import java.util.Collection;
 
+/**
+ * Abstract class used for handling update process of an object.
+ *
+ * @param <T> type of updating object.
+ */
 @Slf4j
 public abstract class AbstractUpdateHandler<T> implements UpdateHandler<T> {
     private final Collection<UpdateListener<T>> updateListeners;

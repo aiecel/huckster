@@ -1,4 +1,4 @@
-package org.aiecel.huckster.trading.ta.indicator;
+package org.aiecel.huckster.ta.indicator;
 
 import org.aiecel.huckster.core.value.OHLC;
 

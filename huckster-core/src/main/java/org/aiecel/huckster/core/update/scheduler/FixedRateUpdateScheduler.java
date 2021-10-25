@@ -8,6 +8,9 @@ import java.util.Collection;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ * Schedules update ticks at a fixed rate.
+ */
 @Slf4j
 public class FixedRateUpdateScheduler implements UpdateScheduler {
     private final long periodMillis;
@@ -33,6 +36,9 @@ public class FixedRateUpdateScheduler implements UpdateScheduler {
         this.updateHandlers = new ArrayList<>();
     }
 
+    /**
+     * Starts the scheduler.
+     */
     @Override
     public void start() {
         log.info("Scheduling ticks - period: {}ms, delay: {}ms", periodMillis, delay);
@@ -48,6 +54,11 @@ public class FixedRateUpdateScheduler implements UpdateScheduler {
         }, delay, periodMillis);
     }
 
+    /**
+     * Adds new {@link Updatable} objects to the scheduler.
+     *
+     * @param updatable {@link Updatable} object.
+     */
     @Override
     public void addUpdatable(Updatable updatable) {
         updateHandlers.add(updatable);

@@ -1,8 +1,8 @@
 import lombok.extern.slf4j.Slf4j;
 import org.aiecel.huckster.core.price.series.CandleSeries;
 import org.aiecel.huckster.trading.strategy.Strategy;
-import org.aiecel.huckster.trading.ta.indicator.OHLCValueIndicator;
-import org.aiecel.huckster.trading.ta.indicator.SMAIndicator;
+import org.aiecel.huckster.ta.indicator.OHLCValueIndicator;
+import org.aiecel.huckster.ta.indicator.SMAIndicator;
 
 @Slf4j
 public class TestSMAStrategy implements Strategy {

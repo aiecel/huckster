@@ -2,33 +2,39 @@ package org.aiecel.huckster.core.update.handler;
 
 import lombok.extern.slf4j.Slf4j;
 import org.aiecel.huckster.core.data.provider.OHLCProvider;
-import org.aiecel.huckster.core.price.PriceCandle;
+import org.aiecel.huckster.core.price.Candle;
 import org.aiecel.huckster.core.price.series.CandleSeries;
 import org.aiecel.huckster.core.time.watch.RealtimeWatch;
 import org.aiecel.huckster.core.time.watch.Watch;
 
 import java.time.Duration;
 
+/**
+ * Update handler for {@link CandleSeries}.
+ */
 @Slf4j
 public final class CallableCandleSeriesUpdateHandler extends AbstractCallableUpdateHandler<CandleSeries> {
-    private final OHLCProvider<PriceCandle> provider;
+    private final OHLCProvider<Candle> provider;
     private final Watch watch;
 
     public CallableCandleSeriesUpdateHandler(CandleSeries updatingSeries,
-                                             OHLCProvider<PriceCandle> candleProvider) {
+                                             OHLCProvider<Candle> candleProvider) {
         super(updatingSeries);
         this.provider = candleProvider;
         this.watch = RealtimeWatch.getInstance();
     }
 
     public CallableCandleSeriesUpdateHandler(CandleSeries updatingSeries,
-                                             OHLCProvider<PriceCandle> candleProvider,
+                                             OHLCProvider<Candle> candleProvider,
                                              Watch watch) {
         super(updatingSeries);
         this.provider = candleProvider;
         this.watch = watch;
     }
 
+    /**
+     * Updates an object.
+     */
     @Override
     protected void updateObject() {
         if (updatingObject.size() == 0) {

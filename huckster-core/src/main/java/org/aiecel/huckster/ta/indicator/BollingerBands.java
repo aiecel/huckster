@@ -1,4 +1,4 @@
-package org.aiecel.huckster.trading.ta.indicator.bollingerbands;
+package org.aiecel.huckster.ta.indicator;
 
 public record BollingerBands(Double mean, Double upperBand, Double lowerBand) {
 }

@@ -6,6 +6,9 @@ import org.aiecel.huckster.core.price.Currency;
 
 import java.util.Objects;
 
+/**
+ * Symbol of a currency pair asset.
+ */
 @Getter
 @RequiredArgsConstructor
 public final class CurrencyPairSymbol implements Symbol {
@@ -15,25 +18,20 @@ public final class CurrencyPairSymbol implements Symbol {
     /**
      * Returns the symbol of the asset.
      *
-     * @return the symbol of the asset.
+     * @return a {@link String}.
      */
     @Override
     public String getString() {
-        return baseCurrency + "_" + homeCurrency;
+        return getString("_");
     }
 
     /**
-     * Returns the symbol of the asset.
+     * Returns the symbol of the asset with the specified delimiter.
      *
-     * @return the symbol of the asset.
+     * @return a {@link String}.
      */
     public String getString(String delimiter) {
         return baseCurrency + delimiter + homeCurrency;
-    }
-
-    @Override
-    public String toString() {
-        return getString();
     }
 
     @Override
@@ -48,5 +46,10 @@ public final class CurrencyPairSymbol implements Symbol {
     @Override
     public int hashCode() {
         return Objects.hash(baseCurrency, homeCurrency);
+    }
+
+    @Override
+    public String toString() {
+        return getString();
     }
 }

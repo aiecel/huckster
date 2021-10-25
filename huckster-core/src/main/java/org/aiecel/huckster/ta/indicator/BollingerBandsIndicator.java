@@ -1,10 +1,6 @@
-package org.aiecel.huckster.trading.ta.indicator.bollingerbands;
+package org.aiecel.huckster.ta.indicator;
 
 import lombok.Getter;
-import org.aiecel.huckster.trading.ta.indicator.AbstractIndicator;
-import org.aiecel.huckster.trading.ta.indicator.Indicator;
-import org.aiecel.huckster.trading.ta.indicator.SMAIndicator;
-import org.aiecel.huckster.trading.ta.indicator.StandardDeviationIndicator;
 
 public class BollingerBandsIndicator extends AbstractIndicator<Number, BollingerBands> {
     private final Indicator<Number> middleLineIndicator;

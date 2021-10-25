@@ -1,6 +1,6 @@
 package org.aiecel.huckster.core.value.series;
 
-import org.aiecel.huckster.trading.ta.indicator.Indicator;
+import org.aiecel.huckster.ta.indicator.Indicator;
 
 import java.util.List;
 

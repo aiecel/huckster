@@ -2,6 +2,9 @@ package org.aiecel.huckster.core.time;
 
 import java.time.Instant;
 
+/**
+ * Time grid
+ */
 public interface TimeGrid {
     /**
      * Returns true if the provided timestamp is aligned with the grid.

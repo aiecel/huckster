@@ -1,19 +1,42 @@
 package org.aiecel.huckster.core.price;
 
-import org.aiecel.huckster.core.value.TimedValue;
+import lombok.RequiredArgsConstructor;
+import org.aiecel.huckster.core.time.Timed;
 
 import java.math.BigDecimal;
 import java.time.Instant;
+import java.util.Objects;
 
-public record Tick(BigDecimal price, Instant timestamp) implements TimedValue, Priced {
+@RequiredArgsConstructor
+public class Tick implements Timed, Priced {
+    private final BigDecimal price;
+    private final Instant timestamp;
+
     /**
      * Returns the timestamp of the price
      *
      * @return timestamp of the price
      */
-    @Override
-    public Instant timestamp() {
+    public Instant getTimestamp() {
         return timestamp;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) return true;
+        if (obj == null || obj.getClass() != this.getClass()) return false;
+        var that = (Tick) obj;
+        return Objects.equals(this.price, that.price) &&
+                Objects.equals(this.timestamp, that.timestamp);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(price, timestamp);
     }
 
     @Override

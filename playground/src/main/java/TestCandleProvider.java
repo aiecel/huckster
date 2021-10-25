@@ -2,7 +2,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.aiecel.huckster.core.asset.symbol.CurrencyPairSymbol;
 import org.aiecel.huckster.core.data.provider.OHLCProvider;
 import org.aiecel.huckster.core.time.Timeframe;
-import org.aiecel.huckster.core.price.PriceCandle;
+import org.aiecel.huckster.core.price.Candle;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
-public final class TestCandleProvider implements OHLCProvider<PriceCandle> {
+public final class TestCandleProvider implements OHLCProvider<Candle> {
     public static final String URL = "https://api-fxpractice.oanda.com";
     public static final String TOKEN = "dee99be37c7c5e989d205c0ad6aa1130-07206607b500c062bf627b735ea4707f";
     public static final String ACCOUNT_ID = "101-004-15702241-001";
@@ -31,7 +31,7 @@ public final class TestCandleProvider implements OHLCProvider<PriceCandle> {
     }
 
     @Override
-    public List<PriceCandle> getLast(Timeframe timeframe, int quantity) {
+    public List<Candle> getLast(Timeframe timeframe, int quantity) {
         log.debug("Fetching candles from oanda");
 
         //response from api
@@ -57,14 +57,14 @@ public final class TestCandleProvider implements OHLCProvider<PriceCandle> {
         JSONArray candlesArray = new JSONObject(response.readEntity(String.class)).getJSONArray("candles");
 
         //convert all JSON candles to Candle objects and add them to the list
-        List<PriceCandle> candleList = new ArrayList<>(quantity);
+        List<Candle> candleList = new ArrayList<>(quantity);
         JSONObject candleJSONObject;
         JSONObject ohlcJSONObject;
 
         for (int i = 0; i < candlesArray.length(); i++) {
             candleJSONObject = candlesArray.getJSONObject(i);
             ohlcJSONObject = candleJSONObject.getJSONObject("mid");
-            candleList.add(new PriceCandle(
+            candleList.add(new Candle(
                     Instant.parse(candleJSONObject.getString("time")),
                     timeframe,
                     ohlcJSONObject.getBigDecimal("o"),
